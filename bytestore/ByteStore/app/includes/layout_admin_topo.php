@@ -28,6 +28,8 @@ $secao = $secao ?? '';
     <title><?= Util::e($titulo) ?> - Painel ByteStore</title>
     <link rel="stylesheet" href="<?= Util::url('assets/css/base.css') ?>">
     <link rel="stylesheet" href="<?= Util::url('assets/css/admin.css') ?>">
+    <link rel="stylesheet" href="<?= Util::url('assets/css/escuro.css') ?>">
+    <script src="<?= Util::url('assets/js/tema.js') ?>"></script>
 </head>
 <body class="admin">
 

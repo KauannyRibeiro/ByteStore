@@ -1,0 +1,82 @@
+/* =====================================================================
+   MODO ESCURO - só sobrescreve cores. Carregar DEPOIS dos outros CSS.
+   Ativado quando <html data-tema="escuro">.
+   ===================================================================== */
+html[data-tema="escuro"] { color-scheme: dark; }
+
+html[data-tema="escuro"] {
+    --texto: #e2e8f0;
+    --texto-suave: #94a3b8;
+    --borda: #334155;
+    --fundo-caixa: #1e293b;
+    --verde-claro: #14532d;
+    --vermelho-claro: #450a0a;
+    --azul-claro: #1e3a8a;
+    --vermelho: #f87171;
+    --verde: #4ade80;
+    --azul-texto: #93c5fd;
+}
+
+/* Fundo das páginas */
+html[data-tema="escuro"] body.site  { background: #0b1220; }
+html[data-tema="escuro"] body.admin { background: #0b1220; }
+
+/* Superfícies que usavam "branco" */
+html[data-tema="escuro"] .site-topo,
+html[data-tema="escuro"] .site-rodape,
+html[data-tema="escuro"] .admin-topo,
+html[data-tema="escuro"] .cartao-produto,
+html[data-tema="escuro"] .chip,
+html[data-tema="escuro"] .qtd-botao,
+html[data-tema="escuro"] .tabela,
+html[data-tema="escuro"] .vazio,
+html[data-tema="escuro"] .btn-sec,
+html[data-tema="escuro"] .login-caixa {
+    background: #1e293b;
+    color: var(--texto);
+}
+html[data-tema="escuro"] .chip.ativo { background: var(--cor-principal); color: #fff; }
+html[data-tema="escuro"] .login-pagina { background: #020617; }
+
+/* Campos de formulário */
+html[data-tema="escuro"] input[type="text"],
+html[data-tema="escuro"] input[type="email"],
+html[data-tema="escuro"] input[type="password"],
+html[data-tema="escuro"] input[type="number"],
+html[data-tema="escuro"] input[type="search"],
+html[data-tema="escuro"] select,
+html[data-tema="escuro"] textarea {
+    background: #0f172a;
+    color: var(--texto);
+    border-color: #475569;
+}
+html[data-tema="escuro"] ::placeholder { color: #64748b; }
+
+/* Bordas fixas */
+html[data-tema="escuro"] .btn-sec,
+html[data-tema="escuro"] .chip,
+html[data-tema="escuro"] .qtd-botao,
+html[data-tema="escuro"] .vazio { border-color: #475569; }
+html[data-tema="escuro"] .btn-sec:hover { background: #334155; border-color: #64748b; }
+
+/* Tabelas */
+html[data-tema="escuro"] .tabela thead th { background: #0f172a; color: var(--texto-suave); }
+html[data-tema="escuro"] .tabela tbody tr:hover { background: #273449; }
+html[data-tema="escuro"] .tabela-specs th { background: #0f172a; }
+
+/* Selos e avisos */
+html[data-tema="escuro"] .selo-cinza { background: #334155; color: #cbd5e1; }
+html[data-tema="escuro"] .alerta-sucesso { border-color: #166534; color: #bbf7d0; }
+html[data-tema="escuro"] .alerta-erro    { border-color: #991b1b; color: #fecaca; }
+html[data-tema="escuro"] .alerta-info    { border-color: #1d4ed8; color: #bfdbfe; }
+html[data-tema="escuro"] .aviso-carrinho { color: #bfdbfe; }
+
+/* Botão do tema (flutuante) */
+.btn-tema {
+    position: fixed; right: 1rem; bottom: 1rem; z-index: 9999;
+    width: 2.75rem; height: 2.75rem; border-radius: 50%;
+    border: 1px solid #94a3b8; background: #fff; color: #111;
+    font-size: 1.25rem; line-height: 1; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+html[data-tema="escuro"] .btn-tema { background: #1e293b; color: #fff; border-color: #475569; }

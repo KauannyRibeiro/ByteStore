@@ -12,7 +12,7 @@
 // esse código, então o pedido falso é recusado.
 //
 // COMO USAR:
-//   no formulário:      <?= Csrf::campo() ?>
+//   no formulário:      chame Csrf::campo() dentro do <form> (com echo)
 //   na página que recebe: if (!Csrf::validar($_POST['csrf'] ?? null)) { ... recusar ... }
 // =====================================================================
 final class Csrf

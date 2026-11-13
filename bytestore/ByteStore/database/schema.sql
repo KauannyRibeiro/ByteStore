@@ -11,8 +11,8 @@
 -- DROP DATABASE IF EXISTS bytestore;
 -- =====================================================================
 
-CREATE DATABASE IF NOT EXISTS bytestore CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE bytestore;
+-- CREATE DATABASE IF NOT EXISTS bytestore CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- USE bytestore;
 
 -- 1. Categorias
 CREATE TABLE IF NOT EXISTS categorias (

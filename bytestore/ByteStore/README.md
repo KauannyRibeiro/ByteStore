@@ -32,6 +32,27 @@ Painel: **http://localhost:8000/admin/login.php** com `admin@bytestore.com` / `a
 
 No Windows você também pode dar dois cliques em `iniciar-servidor.bat`.
 
+## Versão online (InfinityFree)
+
+O projeto também está publicado em **https://bytestore.page.gd** (hospedagem gratuita InfinityFree, PHP + MySQL).
+
+A hospedagem usa uma estrutura um pouco diferente da deste repositório:
+
+- No InfinityFree o `htdocs` é a raiz do site, então o conteúdo de `public/` fica direto nele
+  (`index.php`, `admin/`, `assets/`...) e os caminhos dos `require`/`include` perdem um nível
+  (`/../app/...` vira `/app/...`, e `/../../app/...` vira `/../app/...`).
+- O `config/config.php` online usa os dados do MySQL da hospedagem (host `sqlXXX.infinityfree.com`,
+  usuário e banco com prefixo `if0_...`). Esses dados **nunca** são enviados ao GitHub.
+- O banco é criado importando o `database/schema.sql` pelo phpMyAdmin da hospedagem.
+- Online, use `'ambiente' => 'producao'` no `config.php` para não exibir erros do PHP aos visitantes
+  e troque a senha do administrador padrão.
+
+## Modo escuro
+
+Há um botão 🌙/☀️ no canto inferior direito de todas as páginas (loja, painel e login). A escolha fica salva
+no navegador; na primeira visita o site segue o tema do sistema. Arquivos: `public/assets/css/escuro.css`
+(só sobrescreve cores) e `public/assets/js/tema.js`.
+
 ## Estrutura de pastas
 
 ```

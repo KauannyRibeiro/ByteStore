@@ -21,6 +21,8 @@ $admin = Auth::estaLogado() ? Auth::usuario() : null;
     <title><?= Util::e($titulo) ?> - ByteStore</title>
     <link rel="stylesheet" href="<?= Util::url('assets/css/base.css') ?>">
     <link rel="stylesheet" href="<?= Util::url('assets/css/site.css') ?>">
+    <link rel="stylesheet" href="<?= Util::url('assets/css/escuro.css') ?>">
+    <script src="<?= Util::url('assets/js/tema.js') ?>"></script>
 </head>
 <body class="site">
 
