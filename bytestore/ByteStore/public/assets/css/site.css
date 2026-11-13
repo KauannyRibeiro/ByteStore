@@ -1,0 +1,148 @@
+/* =====================================================================
+   SITE.CSS - aparência da LOJA (o que o cliente vê)
+   Cor principal: AZUL. Fundo claro.
+   (O painel administrativo usa outra aparência: veja admin.css.)
+   ===================================================================== */
+
+body.site {
+    --cor-principal: #2563eb;
+    --cor-principal-escura: #1d4ed8;
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Faixa escura: aparece só quando o ADMIN está logado ---------- */
+.faixa-admin {
+    background: #111827;
+    color: #f9fafb;
+    border-bottom: 3px solid #f59e0b;      /* detalhe amarelo para chamar atenção */
+    padding: .6rem 1.25rem;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
+    font-size: .9rem;
+}
+.faixa-admin-acoes { display: flex; gap: .5rem; align-items: center; }
+.faixa-admin-acoes form { margin: 0; }
+
+/* ---------- Cabeçalho da loja ---------- */
+.site-topo { background: var(--branco); border-bottom: 1px solid var(--borda); }
+.site-topo-interno {
+    max-width: 1100px; margin: 0 auto; padding: .9rem 1.25rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--texto); text-decoration: none; }
+.logo span { color: var(--cor-principal); }
+
+.site-menu { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.site-menu a { color: var(--texto); text-decoration: none; font-weight: 600; }
+.site-menu a:hover { color: var(--cor-principal); }
+.menu-admin { font-size: .85rem; color: var(--texto-suave) !important; font-weight: 500 !important; }
+
+/* Carrinho com bolinha de contagem */
+.menu-carrinho { display: inline-flex; align-items: center; gap: .4rem; }
+.contador {
+    background: var(--cor-principal); color: var(--branco);
+    min-width: 1.4rem; height: 1.4rem; padding: 0 .35rem;
+    border-radius: 999px; font-size: .75rem; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ---------- Conteúdo e rodapé ---------- */
+.site-conteudo { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+.site-rodape { text-align: center; padding: 1.25rem; color: var(--texto-suave); font-size: .85rem; border-top: 1px solid var(--borda); background: var(--branco); }
+.site-rodape p { margin: 0; }
+
+/* ---------- Vitrine ---------- */
+.vitrine-titulo h1 { font-size: 1.8rem; }
+.vitrine-titulo p { color: var(--texto-suave); }
+
+.barra-filtros { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: .75rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip {
+    padding: .35rem .9rem; border-radius: 999px; border: 1px solid #cbd5e1;
+    background: var(--branco); color: var(--texto); text-decoration: none; font-size: .9rem;
+}
+.chip:hover { border-color: var(--cor-principal); color: var(--cor-principal); }
+.chip.ativo { background: var(--cor-principal); border-color: var(--cor-principal); color: var(--branco); }
+
+.busca { display: flex; gap: .5rem; }
+.busca input[type="search"] { min-width: 240px; }
+.busca .btn { margin: 0; }
+
+.resultado-info { color: var(--texto-suave); font-size: .9rem; }
+
+/* Grade de cartões: o navegador escolhe quantas colunas cabem */
+.grid-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.cartao-produto {
+    background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 1rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+}
+.cartao-produto:hover { border-color: var(--cor-principal); box-shadow: 0 2px 10px rgba(37,99,235,.12); }
+.cartao-selos { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .6rem; }
+.cartao-nome { font-size: 1.05rem; margin-bottom: .35rem; }
+.cartao-nome a { color: var(--texto); text-decoration: none; }
+.cartao-nome a:hover { color: var(--cor-principal); }
+.cartao-detalhes { color: var(--texto-suave); font-size: .85rem; margin: 0; }
+.cartao-rodape form { margin: 0; }
+.cartao-rodape .selo { margin: .25rem 0; }
+
+/* ---------- Página do produto ---------- */
+.produto-pagina { display: grid; grid-template-columns: 1fr 320px; gap: 1rem; align-items: start; }
+.produto-info h1 { font-size: 1.6rem; }
+.produto-info h2 { font-size: 1.1rem; margin-top: 1.25rem; }
+.produto-descricao { color: var(--texto-suave); }
+.produto-compra { position: sticky; top: 1rem; }
+.preco-grande { font-size: 2rem; margin-bottom: .5rem; }
+.form-compra { margin: 1rem 0; }
+.form-compra label { display: block; font-weight: 600; margin-bottom: .25rem; font-size: .9rem; }
+.aviso-carrinho { background: var(--azul-claro); color: #1e3a8a; padding: .5rem .75rem; border-radius: var(--raio); font-size: .85rem; margin: .75rem 0 0; }
+
+/* ---------- Carrinho ---------- */
+.carrinho-cabecalho { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.carrinho-cabecalho h1 { margin: 0; font-size: 1.6rem; }
+
+.carrinho-pagina { display: grid; grid-template-columns: 1fr 330px; gap: 1rem; align-items: start; }
+
+/* Cada item: nome | quantidade | subtotal | remover */
+.carrinho-item { display: grid; grid-template-columns: 1fr auto auto auto; gap: 1rem; align-items: center; margin-bottom: .75rem; }
+.item-info { display: flex; flex-direction: column; }
+.item-nome { font-weight: 700; color: var(--texto); text-decoration: none; }
+.item-nome:hover { color: var(--cor-principal); }
+.item-unitario { font-size: .85rem; color: var(--texto-suave); }
+.item-subtotal { font-weight: 800; min-width: 100px; text-align: right; }
+.carrinho-item form { margin: 0; }
+
+/* Controle  [-] 2 [+] */
+.item-quantidade { display: flex; align-items: center; gap: .5rem; }
+.qtd-botao {
+    width: 2rem; height: 2rem; border: 1px solid #cbd5e1; background: var(--branco);
+    border-radius: var(--raio); font-size: 1.1rem; font-weight: 700; cursor: pointer; line-height: 1;
+}
+.qtd-botao:hover:not(:disabled) { border-color: var(--cor-principal); color: var(--cor-principal); }
+.qtd-botao:disabled { opacity: .4; cursor: not-allowed; }
+.qtd-valor { min-width: 1.5rem; text-align: center; font-weight: 700; }
+
+/* Resumo do pedido */
+.carrinho-resumo { position: sticky; top: 1rem; }
+.carrinho-resumo h2 { font-size: 1.1rem; }
+.carrinho-resumo form { margin: 0; }
+.resumo-linha { display: flex; justify-content: space-between; padding: .4rem 0; color: var(--texto-suave); }
+.resumo-total { color: var(--texto); font-weight: 800; font-size: 1.2rem; border-top: 1px solid var(--borda); margin-top: .4rem; padding-top: .75rem; margin-bottom: .75rem; }
+
+/* ---------- Telas pequenas ---------- */
+@media (max-width: 850px) {
+    .produto-pagina, .carrinho-pagina { grid-template-columns: 1fr; }
+    .produto-compra, .carrinho-resumo { position: static; }
+    .carrinho-item { grid-template-columns: 1fr 1fr; }
+    .item-subtotal { text-align: left; }
+}
+@media (max-width: 600px) {
+    .busca { width: 100%; }
+    .busca input[type="search"] { min-width: 0; flex: 1; }
+}
+
+/* ---------- Blocos que só agrupam conteúdo ---------- */
+.carrinho-itens { min-width: 0; }
+.cartao-corpo { min-width: 0; }

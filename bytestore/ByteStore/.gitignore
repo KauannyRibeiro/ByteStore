@@ -1,0 +1,13 @@
+# ---------- O que o Git NÃO deve guardar ----------
+
+# Senha do banco do SEU computador. Nunca suba isto para o GitHub!
+# (quem baixar o projeto copia config/config.exemplo.php para config/config.php)
+config/config.php
+
+# Arquivos de log gerados durante o uso
+logs/*.log
+
+# Arquivos do sistema operacional e do editor
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,165 @@
+/* =====================================================================
+   BASE.CSS - estilos COMPARTILHADOS pelo site e pelo painel
+   (botões, formulários, tabelas, alertas, selos...)
+   Cada área define a sua cor principal em site.css / admin.css.
+   ===================================================================== */
+
+/* ---------- Variáveis (cores e medidas reutilizadas) ---------- */
+:root {
+    --texto: #1e293b;          /* cor do texto normal */
+    --texto-suave: #64748b;    /* texto secundário */
+    --borda: #e2e8f0;          /* linhas e bordas */
+    --branco: #ffffff;
+    --fundo-caixa: #ffffff;
+    --verde: #15803d;
+    --verde-claro: #dcfce7;
+    --vermelho: #b91c1c;
+    --vermelho-claro: #fee2e2;
+    --azul-claro: #dbeafe;
+    --azul-texto: #1d4ed8;
+    --raio: 8px;               /* cantos arredondados */
+    --cor-principal: #2563eb;  /* sobrescrita em body.site e body.admin */
+    --cor-principal-escura: #1d4ed8;
+}
+
+/* ---------- Reset simples ---------- */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--texto);
+    line-height: 1.5;
+}
+h1, h2, h3 { line-height: 1.25; margin: 0 0 .5rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--cor-principal); }
+img { max-width: 100%; }
+
+/* ---------- Caixa (cartão branco) ---------- */
+.caixa {
+    background: var(--fundo-caixa);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    display: inline-block;
+    padding: .55rem 1rem;
+    border: 1px solid var(--cor-principal);
+    border-radius: var(--raio);
+    background: var(--cor-principal);
+    color: var(--branco);
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+.btn:hover { background: var(--cor-principal-escura); border-color: var(--cor-principal-escura); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn-sec     { background: var(--branco); color: var(--texto); border-color: #cbd5e1; }
+.btn-sec:hover { background: #f1f5f9; border-color: #94a3b8; }
+
+.btn-perigo  { background: var(--vermelho); border-color: var(--vermelho); }
+.btn-perigo:hover { background: #991b1b; border-color: #991b1b; }
+
+.btn-link-perigo { background: transparent; border-color: transparent; color: var(--vermelho); }
+.btn-link-perigo:hover { background: var(--vermelho-claro); border-color: transparent; }
+
+.btn-pequeno { padding: .3rem .65rem; font-size: .85rem; }
+.btn-bloco   { display: block; width: 100%; margin-top: .5rem; }
+
+/* variações usadas em fundos escuros (faixa do admin e menu lateral) */
+.btn-claro    { background: var(--branco); color: #111827; border-color: var(--branco); }
+.btn-claro:hover { background: #e5e7eb; border-color: #e5e7eb; }
+.btn-contorno { background: transparent; color: var(--branco); border-color: rgba(255,255,255,.5); }
+.btn-contorno:hover { background: rgba(255,255,255,.12); border-color: var(--branco); }
+.btn-perigo-claro { background: transparent; color: #fca5a5; border-color: #7f1d1d; }
+.btn-perigo-claro:hover { background: #7f1d1d; color: var(--branco); border-color: #7f1d1d; }
+
+/* ---------- Grupos de botões ---------- */
+.acoes { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.acoes form { margin: 0; }
+.barra-acoes {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;
+}
+.barra-acoes p { margin: 0; color: var(--texto-suave); }
+
+/* ---------- Formulários ---------- */
+.campo { margin-bottom: 1rem; }
+.campo label { display: block; margin-bottom: .25rem; font-weight: 600; font-size: .9rem; }
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="search"], select, textarea {
+    width: 100%;
+    padding: .55rem .7rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--raio);
+    font: inherit;
+    background: var(--branco);
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--cor-principal);
+    outline-offset: 1px;
+    border-color: var(--cor-principal);
+}
+.linha-dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.formulario fieldset {
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1rem 1rem .25rem;
+    margin: 0 0 1.25rem;
+}
+.formulario legend { padding: 0 .5rem; font-weight: 700; color: var(--texto-suave); }
+
+/* ---------- Alertas (mensagens) ---------- */
+.alerta {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding: .75rem 1rem;
+    border-radius: var(--raio);
+    border: 1px solid;
+    margin-bottom: 1rem;
+}
+.alerta-sucesso { background: var(--verde-claro);    border-color: #86efac; color: #14532d; }
+.alerta-erro    { background: var(--vermelho-claro); border-color: #fca5a5; color: #7f1d1d; }
+.alerta-info    { background: var(--azul-claro);     border-color: #93c5fd; color: #1e3a8a; }
+.alerta-link    { font-weight: 700; white-space: nowrap; color: inherit; }
+
+/* ---------- Tabelas ---------- */
+.tabela-rolagem { overflow-x: auto; }   /* em telas pequenas a tabela rola para o lado */
+.tabela { width: 100%; border-collapse: collapse; background: var(--branco); border: 1px solid var(--borda); border-radius: var(--raio); }
+.tabela th, .tabela td { padding: .65rem .8rem; text-align: left; border-bottom: 1px solid var(--borda); vertical-align: middle; }
+.tabela thead th { background: #f1f5f9; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; color: var(--texto-suave); }
+.tabela tbody tr:hover { background: #f8fafc; }
+.tabela .num { text-align: right; white-space: nowrap; }
+.tabela .col-acoes { text-align: right; white-space: nowrap; }
+.tabela .col-acoes form { display: inline; }
+.tabela-specs th { width: 40%; background: #f8fafc; font-weight: 600; }
+
+/* ---------- Selos (etiquetinhas) ---------- */
+.selo { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+.selo-azul     { background: var(--azul-claro);     color: var(--azul-texto); }
+.selo-cinza    { background: #e2e8f0;               color: #475569; }
+.selo-verde    { background: var(--verde-claro);    color: var(--verde); }
+.selo-vermelho { background: var(--vermelho-claro); color: var(--vermelho); }
+
+/* ---------- Estado vazio ("nada por aqui") ---------- */
+.vazio {
+    text-align: center; padding: 2.5rem 1rem;
+    background: var(--branco); border: 1px dashed #cbd5e1; border-radius: var(--raio);
+    color: var(--texto-suave);
+}
+
+/* ---------- Preço ---------- */
+.preco { font-size: 1.25rem; font-weight: 800; }
+
+/* ---------- Telas pequenas ---------- */
+@media (max-width: 600px) {
+    .linha-dupla { grid-template-columns: 1fr; }
+    .alerta { flex-direction: column; align-items: flex-start; }
+}

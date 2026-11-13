@@ -1,0 +1,84 @@
+/* =====================================================================
+   ADMIN.CSS - aparência do PAINEL ADMINISTRATIVO
+   Cor principal: VERDE-AZULADO, com menu lateral ESCURO.
+   Propositalmente DIFERENTE da loja (site.css, azul e claro), para você
+   saber na hora se está no painel ou vendo a loja como cliente.
+   ===================================================================== */
+
+body.admin {
+    --cor-principal: #0d9488;
+    --cor-principal-escura: #0f766e;
+    background: #eef2f6;
+    min-height: 100vh;
+}
+
+/* ---------- Estrutura: menu lateral + área principal ---------- */
+.admin-layout { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+
+/* ---------- Menu lateral escuro ---------- */
+.admin-menu {
+    background: #0f172a;
+    color: #e2e8f0;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    padding: 1.25rem 1rem;
+    position: sticky; top: 0; height: 100vh;
+}
+.admin-logo { font-size: 1.5rem; font-weight: 800; color: var(--branco); line-height: 1.1; }
+.admin-logo span { color: #2dd4bf; }
+.admin-logo small { display: block; margin-top: .35rem; font-size: .65rem; letter-spacing: .12em; color: #94a3b8; font-weight: 700; }
+
+.admin-nav { display: flex; flex-direction: column; gap: .25rem; }
+.admin-nav a {
+    padding: .65rem .85rem; border-radius: var(--raio);
+    color: #cbd5e1; text-decoration: none; font-weight: 600;
+}
+.admin-nav a:hover { background: #1e293b; color: var(--branco); }
+.admin-nav a.ativo { background: var(--cor-principal); color: var(--branco); }   /* página atual */
+
+.admin-menu-rodape { margin-top: auto; display: flex; flex-direction: column; gap: .5rem; }
+.admin-menu-rodape form { margin: 0; }
+.admin-menu-rodape .btn-bloco { margin-top: 0; }
+
+/* ---------- Área principal ---------- */
+.admin-principal { min-width: 0; }  /* permite a tabela rolar sem estourar a tela */
+
+.admin-topo {
+    background: var(--branco); border-bottom: 1px solid var(--borda);
+    padding: 1rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.admin-topo h1 { margin: 0; font-size: 1.4rem; }
+.admin-usuario { display: flex; align-items: center; gap: .6rem; color: var(--texto-suave); font-size: .9rem; }
+.selo-admin {
+    background: #0f172a; color: #2dd4bf;
+    padding: .2rem .6rem; border-radius: 999px; font-size: .7rem; font-weight: 800; letter-spacing: .08em;
+}
+
+.admin-conteudo { padding: 1.5rem; max-width: 1000px; }
+
+/* ---------- Painel inicial ---------- */
+.admin-boasvindas h2 { font-size: 1.2rem; }
+.admin-boasvindas p { margin: 0; color: var(--texto-suave); }
+.cards-resumo { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.card-resumo { display: flex; flex-direction: column; gap: .35rem; align-items: flex-start; margin-bottom: 0; }
+.card-numero { font-size: 2.4rem; font-weight: 800; line-height: 1; color: var(--cor-principal); }
+.card-rotulo { color: var(--texto-suave); margin-bottom: .5rem; }
+
+/* ---------- Tela de login ---------- */
+.login-pagina { display: flex; align-items: center; justify-content: center; padding: 1.25rem; background: #0f172a; }
+.login-caixa { width: 100%; max-width: 380px; background: var(--branco); border-radius: 12px; padding: 2rem; }
+.login-logo { font-size: 1.8rem; font-weight: 800; text-align: center; }
+.login-logo span { color: var(--cor-principal); }
+.login-subtitulo { text-align: center; font-size: .7rem; letter-spacing: .12em; font-weight: 800; color: var(--texto-suave); margin: .15rem 0 .75rem; }
+.login-aviso { text-align: center; color: var(--texto-suave); font-size: .9rem; }
+.login-voltar { text-align: center; margin: 1.25rem 0 0; font-size: .9rem; }
+
+/* ---------- Telas pequenas: o menu lateral vira uma barra no topo ---------- */
+@media (max-width: 800px) {
+    .admin-layout { grid-template-columns: 1fr; }
+    .admin-menu { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: .75rem; }
+    .admin-nav { flex-direction: row; flex-wrap: wrap; }
+    .admin-menu-rodape { margin-top: 0; flex-direction: row; flex-wrap: wrap; }
+    .admin-menu-rodape .btn-bloco { width: auto; }
+    .admin-conteudo { padding: 1rem; }
+}
